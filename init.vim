@@ -1,12 +1,10 @@
 call plug#begin()
 	Plug 'tpope/vim-commentary'
-	Plug 'vim-ruby/vim-ruby'
-	Plug 'tpope/vim-rails'
 	Plug 'scrooloose/nerdtree'
-	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-	Plug 'junegunn/fzf.vim'
-	Plug 'Shougo/neocomplete.vim'
 	Plug 'sonph/onehalf', {'rtp': 'vim/'}
+  Plug 'honza/vim-snippets'
+  Plug 'mattn/emmet-vim'
+  Plug 'AndrewRadev/tagalong.vim'
 call plug#end()
 
 set number
@@ -14,6 +12,10 @@ syntax on
 filetype plugin indent on
 filetype on
 filetype indent on
+
+" Emmet
+" let g:user_emmet_install_global = 0 autocmd FileType html,css EmmetInstall
+autocmd FileType html,css EmmetInstall let g:user_emmet_leader_key=’,’
 
 " Tabs
 
@@ -35,10 +37,6 @@ set splitright
 
 map - :NERDTreeToggle<CR> " open/close nerdtree window
 map ] :NERDTreeFind<CR> " pressing this inside any open file in vim will jump to the nerdtree and highlight where that file is -> very useful when you have multiple files open at once
-
-" Search
-
-nnoremap <silent> <C-z> :FZF<CR>
 
 " Theme
 
